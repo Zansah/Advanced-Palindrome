@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Palindrome Checker</title>
+    <script src="https://kit.fontawesome.com/f4efa66e1d.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100vh;
+            background-color: #f5f5f5;
+        }
+
+        .center-main-box {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+        }
+
+        .main-box {
+            width: 400px;
+            height: 250px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px gray;
+            background-color: white;
+        }
+
+        .main-box-header {
+            text-align: center;
+            padding-top: 20px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .search-bar-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .search-bar-container input {
+            width: 250px;
+            height: 34px;
+            padding-left: 10px;
+            border-radius: 30px 0 0 30px;
+            border: solid 1px #bdc3c7;
+            font-size: 14px;
+            outline: none;
+        }
+
+        .search-bar-container button {
+            height: 34px;
+            width: 50px;
+            border: none;
+            background-color: black;
+            border-radius: 0 30px 30px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .fa-magnifying-glass {
+            color: white;
+            font-size: 16px;
+        }
+
+        #display {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+    </style>
+
+    <div class="center-main-box">
+        <div class="main-box">
+            <div class="main-box-header">
+                <p>Palindrome Checker</p>
+            </div>
+
+            <div class="search-bar-container">
+                <input type="text" id="input" placeholder="Type here">
+                <button class="search-button" onclick="check()">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+            </div>
+
+            <div id="display"></div>
+        </div>
+    </div>
+
+    <script>
+        const input = document.getElementById("input");
+        const display = document.getElementById("display");
+
+        function reverseString(str) {
+            return str.split("").reverse().join("");
+        }
+
+        function check() {
+            const value = input.value;
+            const reverse = reverseString(value);
+            const isPalindrome = (value.toLowerCase() === reverse.toLowerCase());
+            display.textContent = isPalindrome ? "This is a palindrome" : "This is not a palindrome";
+        }
+    </script>
+</body>
+</html>
